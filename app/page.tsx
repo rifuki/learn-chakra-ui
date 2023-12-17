@@ -8,17 +8,17 @@ export default function Home() {
         <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">
             <GridItem
                 as="aside"
-                colSpan={1}
+                colSpan={{ base: 6, lg: 2, xl: 1 }}
                 bg="purple.400"
-                minHeight="100vh"
-                p="30px"
+                minHeight={{ lg: '100vh' }}
+                p={{ base: '20px', lg: '30px' }}
             >
                 <span>Sidebar</span>
             </GridItem>
             <GridItem
                 as="main"
-                colSpan={5}
-                padding="30px"
+                colSpan={{ base: 6, lg: 4, xl: 5 }}
+                padding="40px"
             >
                 <Navbar />
                 <Dashboard />

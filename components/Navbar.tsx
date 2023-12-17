@@ -3,7 +3,7 @@
 import { Flex, Heading, Box, Text, Button, Spacer, HStack } from '@chakra-ui/react';
 
 export default function Navbar() {
-    return(
+    return (
         <Flex as="nav" p="10px" alignItems="center">
             <Heading as="h1">Chakra-Ui</Heading>
             <Spacer />
