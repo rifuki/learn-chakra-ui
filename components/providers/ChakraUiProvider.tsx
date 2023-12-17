@@ -4,5 +4,5 @@ import { ReactNode } from 'react';
 export default function ChakraUiProvider({children}:{children: ReactNode}) {
     return (
         <ChakraProvider>{children}</ChakraProvider>
-    )
+    );
 }
