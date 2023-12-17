@@ -12,24 +12,48 @@ import {
 
 export default function Navbar() {
     return (
-        <Flex as="nav" p="10px" alignItems="center">
-            <Heading as="h1">Chakra-Ui</Heading>
+        <Flex
+            as="nav"
+            mt="20px"
+            padding={{ base: '20px', md: '40px' }}
+            alignItems="center"
+            h="50px"
+            position="sticky"
+            top={0}
+            zIndex={1}
+            backdropFilter="blur(1px)"
+        >
+            <Heading
+                as="h1"
+                fontSize={{ base: '2xl', lg: '3xl' }}
+            >
+                Chakra UI
+            </Heading>
+
             <Spacer />
 
-            <HStack spacing="20px">
-                <Box bg="gray.200" p="10px">
-                    R
+            <HStack spacing={{ base: '8px', md: '15px', lg: '15px' }}>
+                <Box
+                    bg="purple.400"
+                    borderRadius="50%"
+                    textAlign="center"
+                    display={{ base: 'none', md: 'flex' }}
+                    w="50px"
+                    h="50px"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <Text
+                        fontSize="md"
+                        fontWeight="bold"
+                        color="white"
+                    >
+                        R
+                    </Text>
                 </Box>
-                <Text>rifuki@nyanyan.com</Text>
-                <Button colorScheme="blue">Logout</Button>
+                <Text>rifuki@nyan.moe</Text>
+                <Button colorScheme="red">Logout</Button>
             </HStack>
         </Flex>
-
-        // <Flex bg="gray.200" justify="space-around" wrap="wrap-reverse" gap="3">
-        //     <Box width="150px" height="50px" bg="red">1</Box>
-        //     <Box width="150px" height="50px" flexGrow="2" bg="blue">2</Box>
-        //     <Box width="150px" height="50px" flexGrow="1" bg="green">3</Box>
-        //     <Box width="150px" height="50px" flexGrow="1" bg="yellow">4</Box>
-        // </Flex>
     );
 }

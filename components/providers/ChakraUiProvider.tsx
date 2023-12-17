@@ -2,9 +2,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 export default function ChakraUiProvider({
-  children,
+    children,
 }: {
-  children: ReactNode;
+    children: ReactNode;
 }) {
-  return <ChakraProvider>{children}</ChakraProvider>;
+    return <ChakraProvider>{children}</ChakraProvider>;
 }

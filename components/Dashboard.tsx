@@ -1,29 +1,118 @@
 // Course#02: Components & Style Props <- deleted
 // Course#04: Grid Layouts
+// Course#07: Card Components
 
-import { SimpleGrid, Box, Text } from '@chakra-ui/react';
+'use client';
+
+import useFetchJsonPlace from '@/features/useFetchJsonPlace';
+import { EditIcon, ViewIcon } from '@chakra-ui/icons';
+import {
+    SimpleGrid,
+    Box,
+    Text,
+    Spinner,
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Flex,
+    Heading,
+    HStack,
+    Button,
+    Divider,
+} from '@chakra-ui/react';
 
 export default function Dashboard() {
-    return (
-        <SimpleGrid columns={4} spacing={10} minChildWidth="200px" p="20px">
-            <Box bg="white" height="200px" border="1px solid">
-                <Text color={{ base: 'pink', md: 'blue', lg: 'green', xl: 'red' }}>
-                    Hello
+    const { data: posts, isLoading } = useFetchJsonPlace();
+
+    if (isLoading)
+        return (
+            <Flex
+                h="70vh"
+                alignItems="center"
+                justifyContent="center"
+                direction="column"
+                gap={5}
+            >
+                <Spinner
+                    size="xl"
+                    color="purple.400"
+                />
+                <Text
+                    fontSize="xl"
+                    fontWeight="300"
+                >
+                    Loading...
                 </Text>
-            </Box>
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
+            </Flex>
+        );
 
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
+    return (
+        <SimpleGrid
+            spacing={10}
+            minChildWidth="300px"
+            padding={{ base: '20px', md: '40px' }}
+        >
+            {posts?.map((post) => (
+                <Card
+                    key={'post-' + post.id}
+                    borderRadius={15}
+                    borderTop="8px"
+                    borderColor="purple.400"
+                    bg="white"
+                >
+                    <CardHeader>
+                        <Flex
+                            alignItems="center"
+                            gap={5}
+                        >
+                            <Box
+                                w="50px"
+                                h="50px"
+                                bg="gray.600"
+                                borderRadius={100}
+                            />
+                            <Box
+                                flexGrow={1}
+                                w="0px"
+                                overflow="hidden"
+                                whiteSpace="wrap"
+                            >
+                                <Heading
+                                    as="h3"
+                                    size="sm"
+                                >
+                                    {post.title}
+                                </Heading>
+                                <Text fontStyle="italic">Author</Text>
+                            </Box>
+                        </Flex>
+                    </CardHeader>
 
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
-            <Box bg="white" height="200px" border="1px solid" />
+                    <CardBody color="gray.500">
+                        <Text align="justify">{post.body}</Text>
+                    </CardBody>
+
+                    <Divider borderColor="gray.200" />
+
+                    <CardFooter>
+                        <HStack>
+                            <Button
+                                variant="ghost"
+                                leftIcon={<ViewIcon />}
+                            >
+                                Watch
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                leftIcon={<EditIcon />}
+                            >
+                                Comment
+                            </Button>
+                        </HStack>
+                    </CardFooter>
+                </Card>
+            ))}
         </SimpleGrid>
     );
 }
