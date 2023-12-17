@@ -1,5 +1,9 @@
 // Course#03: Flex Layouts
+// Course#10: Toast Component
 
+'use client';
+
+import { UnlockIcon } from '@chakra-ui/icons';
 import {
     Flex,
     Heading,
@@ -8,9 +12,24 @@ import {
     Button,
     Spacer,
     HStack,
+    useToast,
 } from '@chakra-ui/react';
 
 export default function Navbar() {
+    const toast = useToast();
+
+    function showToast() {
+        toast({
+            title: 'Logged out',
+            description: 'Successfully logged out',
+            duration: 5000,
+            isClosable: true,
+            status: 'success',
+            position: 'top',
+            icon: <UnlockIcon />,
+        });
+    }
+
     return (
         <Flex
             as="nav"
@@ -52,7 +71,12 @@ export default function Navbar() {
                     </Text>
                 </Box>
                 <Text>rifuki@nyan.moe</Text>
-                <Button colorScheme="red">Logout</Button>
+                <Button
+                    onClick={showToast}
+                    colorScheme="red"
+                >
+                    Logout
+                </Button>
             </HStack>
         </Flex>
     );
