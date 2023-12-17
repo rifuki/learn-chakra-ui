@@ -60,50 +60,32 @@ export default function Profile() {
                 <TabPanel>
                     <List spacing={4}>
                         <ListItem>
-                            <ListIcon
-                                as={CheckCircleIcon}
-                                color="teal.400"
-                            />
+                            <ListIcon as={CheckCircleIcon} color="teal.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
                         <ListItem>
-                            <ListIcon
-                                as={CheckCircleIcon}
-                                color="teal.400"
-                            />
+                            <ListIcon as={CheckCircleIcon} color="teal.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
                         <ListItem>
-                            <ListIcon
-                                as={WarningIcon}
-                                color="red.400"
-                            />
+                            <ListIcon as={WarningIcon} color="red.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
                         <ListItem>
-                            <ListIcon
-                                as={CheckCircleIcon}
-                                color="teal.400"
-                            />
+                            <ListIcon as={CheckCircleIcon} color="teal.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
                         <ListItem>
-                            <ListIcon
-                                as={WarningIcon}
-                                color="red.400"
-                            />
+                            <ListIcon as={WarningIcon} color="red.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
                         <ListItem>
-                            <ListIcon
-                                as={CheckCircleIcon}
-                                color="teal.400"
-                            />
+                            <ListIcon as={CheckCircleIcon} color="teal.400" />
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit.
                         </ListItem>
