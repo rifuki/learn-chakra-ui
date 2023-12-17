@@ -20,6 +20,7 @@ import {
     HStack,
     Button,
     Divider,
+    Avatar,
 } from '@chakra-ui/react';
 
 export default function Dashboard() {
@@ -34,14 +35,8 @@ export default function Dashboard() {
                 direction="column"
                 gap={5}
             >
-                <Spinner
-                    size="xl"
-                    color="purple.400"
-                />
-                <Text
-                    fontSize="xl"
-                    fontWeight="300"
-                >
+                <Spinner size="xl" color="purple.400" />
+                <Text fontSize="xl" fontWeight="300">
                     Loading...
                 </Text>
             </Flex>
@@ -53,7 +48,7 @@ export default function Dashboard() {
             minChildWidth="300px"
             padding={{ base: '20px', md: '40px' }}
         >
-            {posts?.map((post) => (
+            {posts?.map((post, index) => (
                 <Card
                     key={'post-' + post.id}
                     borderRadius={15}
@@ -62,23 +57,15 @@ export default function Dashboard() {
                     bg="white"
                 >
                     <CardHeader>
-                        <Flex
-                            alignItems="center"
-                            gap={5}
-                        >
-                            <Box
-                                w="50px"
-                                h="50px"
-                                bg="gray.600"
-                                borderRadius={100}
+                        <Flex alignItems="center" gap={5}>
+                            <Avatar
+                                src={`https://picsum.photos/200/300?random=${index}`}
                             />
-                            <Box
-                                flexGrow={1}
-                                w="0px"
-                                overflow="hidden"
-                                whiteSpace="wrap"
-                            >
+                            <Box flexGrow={1} w="0px">
                                 <Heading
+                                    overflow="hidden"
+                                    textOverflow="ellipsis"
+                                    whiteSpace="nowrap"
                                     as="h3"
                                     size="sm"
                                 >
@@ -97,16 +84,10 @@ export default function Dashboard() {
 
                     <CardFooter>
                         <HStack>
-                            <Button
-                                variant="ghost"
-                                leftIcon={<ViewIcon />}
-                            >
+                            <Button variant="ghost" leftIcon={<ViewIcon />}>
                                 Watch
                             </Button>
-                            <Button
-                                variant="ghost"
-                                leftIcon={<EditIcon />}
-                            >
+                            <Button variant="ghost" leftIcon={<EditIcon />}>
                                 Comment
                             </Button>
                         </HStack>

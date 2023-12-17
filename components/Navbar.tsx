@@ -7,12 +7,13 @@ import { UnlockIcon } from '@chakra-ui/icons';
 import {
     Flex,
     Heading,
-    Box,
     Text,
     Button,
     Spacer,
     HStack,
     useToast,
+    Avatar,
+    AvatarBadge,
 } from '@chakra-ui/react';
 
 export default function Navbar() {
@@ -42,39 +43,27 @@ export default function Navbar() {
             zIndex={1}
             backdropFilter="blur(1px)"
         >
-            <Heading
-                as="h1"
-                fontSize={{ base: '2xl', lg: '3xl' }}
-            >
+            <Heading as="h1" fontSize={{ base: '2xl', lg: '3xl' }}>
                 Chakra UI
             </Heading>
 
             <Spacer />
 
             <HStack spacing={{ base: '8px', md: '15px', lg: '15px' }}>
-                <Box
-                    bg="purple.400"
-                    borderRadius="50%"
-                    textAlign="center"
-                    display={{ base: 'none', md: 'flex' }}
-                    w="50px"
-                    h="50px"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <Text
-                        fontSize="md"
-                        fontWeight="bold"
-                        color="white"
-                    >
-                        R
-                    </Text>
-                </Box>
+                <Avatar src={process.env.NEXT_PUBLIC_AVATAR_URL}>
+                    <AvatarBadge width="1.3em" bg="teal.400">
+                        <Text fontSize="xs" color="white">
+                            3
+                        </Text>
+                    </AvatarBadge>
+                </Avatar>
+                {/* <Avatar src="null" name="rifuki" bg="purple.400">
+                    <AvatarBadge width="1.3em" bg="teal.400">
+                        <Text fontSize="xs" color="white">3</Text>
+                    </AvatarBadge>
+                </Avatar> */}
                 <Text>rifuki@nyan.moe</Text>
-                <Button
-                    onClick={showToast}
-                    colorScheme="red"
-                >
+                <Button onClick={showToast} colorScheme="red">
                     Logout
                 </Button>
             </HStack>
