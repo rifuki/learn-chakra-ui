@@ -45,21 +45,11 @@ export default function Create() {
     }
 
     return (
-        <Box
-            maxWidth="480px"
-            padding={{ base: '20px', md: '40px' }}
-        >
+        <Box maxWidth="480px" padding={{ base: '20px', md: '40px' }}>
             <form onSubmit={formik.handleSubmit}>
-                <FormControl
-                    mb="40px"
-                    isRequired
-                >
+                <FormControl mb="40px" isRequired>
                     <FormLabel>Post Title:</FormLabel>
-                    <Input
-                        onChange={handleSubmit}
-                        type="text"
-                        name="title"
-                    />
+                    <Input onChange={handleSubmit} type="text" name="title" />
                     <FormHelperText>
                         Enter a descriptive title name.
                     </FormHelperText>
@@ -83,28 +73,18 @@ export default function Create() {
                     />
                 </FormControl>
 
-                <FormControl
-                    mb="40px"
-                    display="flex"
-                    alignItems="center"
-                >
+                <FormControl mb="40px" display="flex" alignItems="center">
                     <Checkbox
                         name="isPriority"
                         size="lg"
                         colorScheme="purple"
                     />
-                    <FormLabel
-                        mb="0"
-                        ml="10px"
-                    >
+                    <FormLabel mb="0" ml="10px">
                         Make this a priority post.
                     </FormLabel>
                 </FormControl>
 
-                <Button
-                    colorScheme="purple"
-                    type="submit"
-                >
+                <Button colorScheme="purple" type="submit">
                     Submit
                 </Button>
             </form>
