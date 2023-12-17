@@ -4,3 +4,9 @@ export type Post = {
     title: string;
     body: string;
 }
+
+export type PostPayload = {
+    title: string;
+    body: string;
+    userId: number
+}

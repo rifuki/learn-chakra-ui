@@ -15,6 +15,7 @@ export default function useFetchJsonPlace() {
             } catch (error) {
                 const err = error as AxiosError;
                 console.log(err);
+                throw new Error(err.message);
             }
         },
     });
